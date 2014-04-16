@@ -6,12 +6,16 @@ package farmacia;
 
 import entities.annotations.View;
 import entities.annotations.Views;
+
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
+import config.Configuracao;
 import relatorio.GeradorRelatorio;
 import relatorio.Relatorio;
 import relatorio.RelatorioRE;
@@ -38,7 +42,7 @@ public class GerarRE implements Serializable{
         GeradorRelatorio gerador = new GeradorRelatorio();
         gerador.gerarRE((ArrayList<Relatorio>) results);
         
-        File file = new File("C:/Relatorios/relatorioEstoque.pdf");
+        File file = new File(Configuracao.CLASSPATH + "relatorios/relatorioEstoque.pdf");
         return file;
 
     }

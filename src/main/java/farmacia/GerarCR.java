@@ -6,11 +6,15 @@ package farmacia;
 
 import entities.annotations.View;
 import entities.annotations.Views;
+
 import java.io.File;
 import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import config.Configuracao;
 import relatorio.GeradorRelatorio;
 import relatorio.Relatorio;
 import relatorio.RelatorioCR;
@@ -38,7 +42,7 @@ import relatorio.RelatorioCR;
          GeradorRelatorio gerador = new GeradorRelatorio();
          gerador.gerarCR(results);
          
-         File file = new File("C:/Relatorios/Cartao de cadastro paciente.pdf");
+         File file = new File (Configuracao.CLASSPATH + "relatorios/Cartao de cadastro paciente.pdf");
          return file;
     }
     

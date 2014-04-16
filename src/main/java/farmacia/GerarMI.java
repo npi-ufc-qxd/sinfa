@@ -7,6 +7,7 @@ package farmacia;
 import entities.annotations.PropertyDescriptor;
 import entities.annotations.View;
 import entities.annotations.Views;
+
 import java.io.File;
 import java.io.Serializable;
 import java.text.Format;
@@ -14,10 +15,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
+
+import config.Configuracao;
 import relatorio.GeradorRelatorio;
 import relatorio.Relatorio;
 import relatorio.RelatorioMI;
@@ -67,7 +71,7 @@ public class GerarMI implements Serializable{
         String data_Fim = d.format(dataFim);
         String produto = this.produto.toString();
         
-        File file = new File("C:/Relatorios/medicamentosIncineracao("+ data_Inicio + "a"+ data_Fim +")"+ produto +".pdf");
+        File file = new File(Configuracao.CLASSPATH + "relatorios/medicamentosIncineracao("+ data_Inicio + "a"+ data_Fim +")"+ produto +".pdf");
         return file;
         
     }

@@ -7,6 +7,7 @@ package farmacia;
 import entities.annotations.PropertyDescriptor;
 import entities.annotations.View;
 import entities.annotations.Views;
+
 import java.io.File;
 import java.io.Serializable;
 import java.text.Format;
@@ -14,10 +15,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.validation.constraints.NotNull;
+
+import config.Configuracao;
 import relatorio.GeradorRelatorio;
 import relatorio.Relatorio;
 import relatorio.RelatorioPV;
@@ -61,7 +65,7 @@ public class GerarPV implements Serializable{
        String data_Inicio = d.format(dataInicio);
        String data_Fim = d.format(dataFim);
         
-       File file = new File("C:/Relatorios/produtosVencidos("+ data_Inicio + "-" + data_Fim+").pdf");
+       File file = new File(Configuracao.CLASSPATH + "relatorios/produtosVencidos("+ data_Inicio + "-" + data_Fim+").pdf");
        return file;
    }
    

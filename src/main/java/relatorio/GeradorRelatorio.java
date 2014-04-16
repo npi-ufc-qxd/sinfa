@@ -5,6 +5,9 @@ import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+
+import config.Configuracao;
+
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.text.Format;
@@ -18,7 +21,7 @@ public class GeradorRelatorio {
         Document doc = null;
         OutputStream os = null;
         try {
-            os = new FileOutputStream("C:/Relatorios/relatorioEstoque.pdf");
+            os = new FileOutputStream(Configuracao.CLASSPATH + "relatorios/relatorioEstoque.pdf");
 
             doc = new Document();
             PdfWriter.getInstance(doc, os);
@@ -38,7 +41,7 @@ public class GeradorRelatorio {
             cabecalho.setWidths(widths);
             cabecalho.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
 
-            Image img = Image.getInstance("C:/Relatorios/logo.png");
+            Image img = Image.getInstance(Configuracao.CLASSPATH + "relatorios/logo.png");
 
             img.setAlignment(Element.ALIGN_CENTER);
             doc.add(img);
@@ -77,7 +80,7 @@ public class GeradorRelatorio {
             Format d = new SimpleDateFormat("dd-MM-yyyy");
             String data_Inicio = d.format(dataInicio);
             String data_Fim = d.format(dataFim);
-            os = new FileOutputStream("C:/Relatorios/vencidosIncinerados(" + data_Inicio + "-" + data_Fim + ").pdf");
+            os = new FileOutputStream(Configuracao.CLASSPATH + "relatorios/vencidosIncinerados(" + data_Inicio + "-" + data_Fim + ").pdf");
 
             doc = new Document();
             PdfWriter.getInstance(doc, os);
@@ -99,7 +102,7 @@ public class GeradorRelatorio {
             cabecalho.setWidths(widths);
             cabecalho.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
 
-            Image img = Image.getInstance("C:/Relatorios/logo.png");
+            Image img = Image.getInstance(Configuracao.CLASSPATH + "relatorios/logo.png");
 
             img.setAlignment(Element.ALIGN_CENTER);
             doc.add(img);
@@ -141,7 +144,7 @@ public class GeradorRelatorio {
             String data_Inicio = d.format(dataInicio);
             String data_Fim = d.format(dataFim);
 
-            os = new FileOutputStream("C:/Relatorios/produtosFornecedor(" + data_Inicio + "-" + data_Fim + ").pdf");
+            os = new FileOutputStream(Configuracao.CLASSPATH + "relatorios/produtosFornecedor(" + data_Inicio + "-" + data_Fim + ").pdf");
 
             doc = new Document();
 
@@ -160,7 +163,7 @@ public class GeradorRelatorio {
             cabecalho.setWidths(widths);
             cabecalho.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
 
-            Image img = Image.getInstance("C:/Relatorios/logo.png");
+            Image img = Image.getInstance(Configuracao.CLASSPATH + "relatorios/logo.png");
 
 
             img.setAlignment(Element.ALIGN_CENTER);
@@ -202,7 +205,7 @@ public class GeradorRelatorio {
             String data_Fim = d.format(dataFim);
             String produto = nproduto;
             
-            os = new FileOutputStream("C:/Relatorios/medicamentosIncineracao("+ data_Inicio + "a"+ data_Fim +")"+ produto +".pdf");
+            os = new FileOutputStream(Configuracao.CLASSPATH + "relatorios/medicamentosIncineracao("+ data_Inicio + "a"+ data_Fim +")"+ produto +".pdf");
 //			os = new FileOutputStream("donwloads/Relatorio_Mensal.pdf");
 //			doc = new Document(PageSize.A4, 72, 72, 72, 72);
             doc = new Document();
@@ -222,7 +225,7 @@ public class GeradorRelatorio {
             cabecalho.setWidths(widths);
             cabecalho.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
 
-            Image img = Image.getInstance("C:/Relatorios/logo.png");
+            Image img = Image.getInstance(Configuracao.CLASSPATH + "relatorios/logo.png");
 
 //            Image img = Image.getInstance(getClass().getResource("/img/logo.png"));
             img.setAlignment(Element.ALIGN_CENTER);
@@ -267,7 +270,7 @@ public class GeradorRelatorio {
             String data_Inicio = d.format(dataInicio);
             String data_Fim = d.format(dataFim);
 
-            os = new FileOutputStream("C:/Relatorios/produtosVencidos(" + data_Inicio + "-" + data_Fim + ").pdf");
+            os = new FileOutputStream(Configuracao.CLASSPATH + "relatorios/produtosVencidos(" + data_Inicio + "-" + data_Fim + ").pdf");
 
             doc = new Document();
 
@@ -286,7 +289,7 @@ public class GeradorRelatorio {
             cabecalho.setWidths(widths);
             cabecalho.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
 
-            Image img = Image.getInstance("C:/Relatorios/logo.png");
+            Image img = Image.getInstance(Configuracao.CLASSPATH + "relatorios/logo.png");
 
 
             img.setAlignment(Element.ALIGN_CENTER);
@@ -326,7 +329,7 @@ public class GeradorRelatorio {
             String data_Inicio = d.format(dataInicio);
             String data_Fim = d.format(dataFim);
 
-            os = new FileOutputStream("C:/Relatorios/RetornosPacientes(" + data_Inicio + "-" + data_Fim + ").pdf");
+            os = new FileOutputStream(Configuracao.CLASSPATH + "relatorios/RetornosPacientes(" + data_Inicio + "-" + data_Fim + ").pdf");
 
             doc = new Document();
 
@@ -345,7 +348,7 @@ public class GeradorRelatorio {
             cabecalho.setWidths(widths);
             cabecalho.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
 
-            Image img = Image.getInstance("C:/Relatorios/logo.png");
+            Image img = Image.getInstance(Configuracao.CLASSPATH + "relatorios/logo.png");
 
 
             img.setAlignment(Element.ALIGN_CENTER);
@@ -383,7 +386,7 @@ public class GeradorRelatorio {
 
         try {
 
-            os = new FileOutputStream("C:/Relatorios/Cartao de cadastro paciente.pdf");
+            os = new FileOutputStream(Configuracao.CLASSPATH + "relatorios/Cartao de cadastro paciente.pdf");
 
             doc = new Document();
 
@@ -401,7 +404,7 @@ public class GeradorRelatorio {
             cabecalho.setWidths(widths);
             cabecalho.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
 
-            Image img = Image.getInstance("C:/Relatorios/logo.png");
+            Image img = Image.getInstance(Configuracao.CLASSPATH + "relatorios/logo.png");
 
             img.setAlignment(Element.ALIGN_TOP);
             img.scalePercent(80);
