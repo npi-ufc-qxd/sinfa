@@ -1,0 +1,261 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:e="http://entities.br"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <body>
+        <ui:composition template="./template.xhtml">
+            <ui:define name="subheader">
+                <h:form>
+                    <rich:toolBar>
+                        <rich:dropDownMenu value="Menu">
+                            <!--                                               
+                                                          <rich:menuItem title="Início" value="Início">
+                                                                        <h:outputLink   value="main.jsf"></h:outputLink>
+                                                                    </rich:menuItem>-->
+
+                            <rich:menuItem rendered="#{empty context.currentUser()}">
+                                <e:go label="Login" viewname="security.Usuario@Login" page="main.jsf"/>
+                            </rich:menuItem>
+
+                            <rich:menuItem  rendered="#{not empty context.currentUser()}">
+                                <e:go label="Logout" viewname="security.Usuario@Logout" page="main.jsf"/>
+                            </rich:menuItem>
+
+                        </rich:dropDownMenu>
+
+                        <rich:dropDownMenu value="Cadastros" rendered='#{context.currentUser().hasRoles("Administrador","Famaceutico","Atendente")}'>
+
+                            <rich:menuItem >                              
+                                <h:outputLink value="main.jsf">
+                                    <h:outputText value="Fornecedor" />
+                                    <f:param name="view" value="farmacia.Fornecedor@Fornecedor" />
+                                </h:outputLink>
+                            </rich:menuItem>
+
+                            <rich:menuItem >                              
+                                <h:outputLink value="main.jsf">
+                                    <h:outputText value="Produto" />
+                                    <f:param name="view" value="farmacia.Produto@Produto" />
+                                </h:outputLink>
+                            </rich:menuItem>
+
+                            <rich:menuItem >                              
+                                <h:outputLink value="main.jsf">
+                                    <h:outputText value="Setor" />
+                                    <f:param name="view" value="farmacia.SSaida@Setor" />
+                                </h:outputLink>
+                            </rich:menuItem>
+
+                            <rich:menuItem >                              
+                                <h:outputLink value="main.jsf">
+                                    <h:outputText value="Tipo de Saída" />
+                                    <f:param name="view" value="farmacia.TipoSaida@TipoSaida" />
+                                </h:outputLink>
+                            </rich:menuItem>
+
+                            <!-- 
+                            <rich:menuItem >                              
+                                <h:outputLink value="main.jsf">
+                                    <h:outputText value="Cartão de Cadastro" />
+                                    <f:param name="view" value="farmacia.Cartao_de_Cadastro@Cartao" />
+                                </h:outputLink>
+                            </rich:menuItem>
+                            --> 
+
+                        </rich:dropDownMenu>
+
+                        <rich:dropDownMenu value="Paciente" rendered='#{context.currentUser().hasRoles("Administrador")}'>
+
+                            <rich:menuItem >                              
+                                <h:outputLink value="main.jsf">
+                                    <h:outputText value="Cadastro de Paciente" />
+                                    <f:param name="view" value="farmacia.Cartao_de_Cadastro@Cartao" />
+                                </h:outputLink>
+                            </rich:menuItem>
+                            
+                            <rich:menuItem >                              
+                                <h:outputLink value="main.jsf">
+                                    <h:outputText value="Desativar Pacientes Inativos à 3 Meses" />
+                                    <f:param name="view" value="farmacia.Cartao_de_Cadastro@Ativacao" />
+                                </h:outputLink>
+                            </rich:menuItem>
+
+                        </rich:dropDownMenu>
+                        
+                        <rich:dropDownMenu value="Paciente" rendered='#{context.currentUser().hasRoles("Famaceutico","Atendente")}'>
+
+                            <rich:menuItem >                              
+                                <h:outputLink value="main.jsf">
+                                    <h:outputText value="Cadastro de Paciente" />
+                                    <f:param name="view" value="farmacia.Cartao_de_Cadastro@Cartao" />
+                                </h:outputLink>
+                            </rich:menuItem>
+                            
+                        </rich:dropDownMenu>
+                        
+                        <rich:dropDownMenu value="Entrada" rendered='#{context.currentUser().hasRoles("Administrador","Famaceutico","Atendente")}'>
+
+                            <rich:menuItem >                              
+                                <h:outputLink value="main.jsf">
+                                    <h:outputText value="Entrada" />
+                                    <f:param name="view" value="farmacia.Entrada_Produto@Entrada" />
+                                </h:outputLink>
+                            </rich:menuItem>
+                            
+                            <rich:menuItem >                              
+                                <h:outputLink value="main.jsf">
+                                    <h:outputText value="Estoque" />
+                                    <f:param name="view" value="farmacia.Entrada_Produto@Estoque" />
+                                </h:outputLink>
+                            </rich:menuItem>
+
+                        </rich:dropDownMenu>
+                        
+                        <rich:dropDownMenu value="Saída" rendered='#{context.currentUser().hasRoles("Administrador","Famaceutico","Atendente")}'>
+
+                            <rich:menuItem >                              
+                                <h:outputLink value="main.jsf">
+                                    <h:outputText value="Saída" />
+                                    <f:param name="view" value="farmacia.SaidaProduto@Saida" />
+                                </h:outputLink>
+                            </rich:menuItem>
+
+                        </rich:dropDownMenu>
+
+                        <rich:dropDownMenu value="Gerar Relatórios" rendered='#{context.currentUser().hasRoles("Administrador","Famaceutico","Atendente")}'>
+
+                            <rich:menuItem >                              
+                                <h:outputLink value="main.jsf">
+                                    <h:outputText value="Gerar Relatório de Medicamentos Incinerados" />
+                                    <f:param name="view" value="farmacia.GerarMI@GerarMI" />
+                                </h:outputLink>
+                            </rich:menuItem>
+
+                            <rich:menuItem >                              
+                                <h:outputLink value="main.jsf">
+                                    <h:outputText value="Gerar Relatório Produtos do Fornecedor" />
+                                    <f:param name="view" value="farmacia.GerarPF@GerarPF" />
+                                </h:outputLink>
+                            </rich:menuItem>
+
+                            <rich:menuItem>
+                                <h:outputLink value="main.jsf">
+                                    <h:outputText value="Gerar Relatório de Estoque"/>
+                                    <f:param name="view" value="farmacia.GerarRE@GerarRE"/>
+                                </h:outputLink>
+                            </rich:menuItem>
+
+                            <rich:menuItem >                              
+                                <h:outputLink value="main.jsf">
+                                    <h:outputText value="Gerar Relatório Vencidos Incinerados" />
+                                    <f:param name="view" value="farmacia.GerarRelatorio@GerarRelatorio" />
+                                </h:outputLink>
+                            </rich:menuItem>
+
+                            <rich:menuItem>
+                                <h:outputLink value="main.jsf">
+                                    <h:outputText value="Gerar Relatório de Produtos Vencidos"/>
+                                    <f:param name="view" value="farmacia.GerarPV@GerarPV"/>
+                                </h:outputLink>
+                            </rich:menuItem>
+                            
+                            <rich:menuItem >                              
+                                <h:outputLink value="main.jsf">
+                                    <h:outputText value="Relatório de Retorno de Pacientes" />
+                                    <f:param name="view" value="farmacia.BuscaRetorno@BuscaRetorno" />
+                                </h:outputLink>
+                            </rich:menuItem>
+                            
+                            <rich:menuItem>
+                                <h:outputLink value="main.jsf">
+                                    <h:outputText value="Imprimir Cadastro"/>
+                                    <f:param name="view" value="farmacia.GerarCR@GerarCR"/>
+                                </h:outputLink>
+                            </rich:menuItem>
+
+                        </rich:dropDownMenu>
+
+                        <rich:dropDownMenu value="Cadastro de Usuários" rendered='#{context.currentUser().hasRoles("Super","Administrador")}'>
+                            <rich:menuItem >
+                                <h:outputLink value="main.jsf">
+                                    <h:outputText value="Cadastro de Usuários" />
+                                    <f:param name="view" value="security.Usuario@CadastroDeUsuarios" />
+                                </h:outputLink>
+                            </rich:menuItem>
+
+                        </rich:dropDownMenu>
+
+
+
+                       <!--<rich:dropDownMenu value="#{i18n['menu.label.main']}">
+                            <e:menuItems/>
+                        </rich:dropDownMenu>
+                       
+                       <rich:dropDownMenu value="#{i18n['menu.label.setup']}">
+                            <rich:menuItem value="Tema :">
+                                <e:themes>
+                                    <f:selectItem itemLabel="Violet Rays" itemValue="violetRays" />
+                                </e:themes>
+                            </rich:menuItem>
+                            <rich:menuItem value="Skin :">
+                                <e:skins/>
+                            </rich:menuItem>
+                        </rich:dropDownMenu>
+                        -->
+                    </rich:toolBar>
+                </h:form>
+            </ui:define>
+
+            <ui:define name="sidebar">
+                <h:panelGroup>
+                    <ul>
+                        <li>
+                            <h2>#{i18n['menu.label.main']}</h2>
+                            <ul class="blocklist">
+                                <e:liMenuItems/>
+                            </ul>
+                        </li>
+
+                        <!--  <li>
+                              <h2>#{i18n['menu.label.setup']}</h2>
+                              <ul class="blocklist">
+                                  <h:form>
+                                      <li>
+                                          <e:themes>
+                                              <f:selectItem itemLabel="Violet Rays" itemValue="violetRays" />
+                                          </e:themes>
+                                      </li>
+                                      <li><e:skins/></li>
+                                  </h:form>
+                              </ul>
+                          </li>-->
+                    </ul>
+                </h:panelGroup>
+            </ui:define>
+
+            <ui:define name="content">
+                <h:panelGroup rendered="#{empty autoEntityBackBean.entity}">
+                    <br/><br/>
+                    <div class="post">
+                        <center>
+                            <h1 class="title">Bem vindo ao</h1>
+                            <p><b><i>Sistema Farmacia de Quixadá</i></b></p>
+                            <h:graphicImage url="img/logo.png"/>
+                            <div class="entry">
+
+                            </div>
+                        </center>
+                    </div>
+                    <br/><br/>
+                </h:panelGroup>
+
+                <e:view />
+            </ui:define>
+
+        </ui:composition>
+    </body>
+</html>
