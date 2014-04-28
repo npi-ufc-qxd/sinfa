@@ -24,7 +24,7 @@
         </a4j:status>
 
         <rich:page pageTitle="#{i18n['application.name']}"
-                   theme="#{context.currentTheme}">
+                   theme="sample">
             <f:facet name="header">
                 #{i18n['application.name']} #{i18n['application.version']}
             </f:facet>
@@ -42,6 +42,13 @@
             <f:facet name="footer">
                 #{i18n['application.copyRight']}
             </f:facet>
+            
+            <f:attribute name  ="appLink" 
+                value ="http://ufc.br"/>
+   			<f:attribute name="appLogo" value="img/logo_top.png" />
+   			<f:attribute name="appIcon" value="img/favicon.ico"/>
+   			<f:attribute name="appMark" value="img/marcadagua.png"/>
+            
         </rich:page>
     </body>
 </html>

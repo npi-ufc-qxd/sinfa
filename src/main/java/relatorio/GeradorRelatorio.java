@@ -687,11 +687,11 @@ public class GeradorRelatorio {
         desc.addCell("");
         desc.addCell("");
 
-        desc.addCell("Medimento:______________________" + result.getMedicamento() + "Dose/Dia/Mês:_________\n"
-                + "Medimento:______________________" + result.getMedicamento() + "Dose/Dia/Mês:_________\n"
-                + "Medimento:______________________" + result.getMedicamento() + "Dose/Dia/Mês:_________\n"
-                + "Medimento:______________________" + result.getMedicamento() + "Dose/Dia/Mês:_________\n"
-                + "Medimento:______________________" + result.getMedicamento() + "Dose/Dia/Mês:_________");
+        desc.addCell("Medicamento:______________________" + result.getMedicamento() + "Dose/Dia/Mês:_________\n"
+                + "Medicamento:______________________" + result.getMedicamento() + "Dose/Dia/Mês:_________\n"
+                + "Medicamento:______________________" + result.getMedicamento() + "Dose/Dia/Mês:_________\n"
+                + "Medicamento:______________________" + result.getMedicamento() + "Dose/Dia/Mês:_________\n"
+                + "Medicamento:______________________" + result.getMedicamento() + "Dose/Dia/Mês:_________");
 
         desc.addCell("");
         desc.addCell("");
