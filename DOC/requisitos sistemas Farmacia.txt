@@ -1,0 +1,11 @@
+> gerar impressao do cartao de cadastro, de forma que possa anotar o retorno do paciente no cartao.
+
+> alerta caso a pessoa nao apareça no dia do retorno.
+
+> determinar tempo de cadastro do paciente ativo e exclusão apos determinado tempo (3 meses).
+
+> separar as pagina de entrada e saida dos medicamentos(entrada deve saber de onde veio/ e a saida saber de onde veio e pra onde vai).
+
+> gerar relatório do estoque
+
+> gerar aviso sobre o vencimento dos lotes.
