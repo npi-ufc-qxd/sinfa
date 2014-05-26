@@ -71,7 +71,7 @@ public class GeradorRelatorio {
         }
 
     }
-    
+    //Gerar Relatório de Estoque Baixo
     public void gerarEB(ArrayList<Relatorio> relatorio) {
         Document doc = null;
         OutputStream os = null;

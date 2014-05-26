@@ -20,10 +20,8 @@ import relatorio.GeradorRelatorio;
 import relatorio.Relatorio;
 import relatorio.RelatorioEB;;
 
-/**
- *
- * @author wanrly
- */
+// @author wanrly
+ 
 @Entity
 @Views({
     @View(name = "GerarEB", title = "Gerar Relatório Estoque Baixo",

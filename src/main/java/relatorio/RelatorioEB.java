@@ -8,7 +8,14 @@ import java.util.List;
 
 import farmacia.Entrada_Produto;
 import farmacia.Produto;
+//Gerar relatório de Estoque Baixo
 
+/**
+*
+* @author Wanrly
+*/
+
+//Relatório de Estoque Baixo
 public class RelatorioEB<Quantidade> {
 
 public List<Relatorio> getRelatorios(){
