@@ -25,6 +25,7 @@
 			<url>https://dl.dropboxusercontent.com/u/1477113/maven/</url>
 		</repository>
 		
+		
 		<repository>
 			<id>jboss-releases</id>
 			<url>https://repository.jboss.org/nexus/content/repositories/releases/</url>

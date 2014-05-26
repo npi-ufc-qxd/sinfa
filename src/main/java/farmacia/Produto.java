@@ -21,7 +21,8 @@ import javax.validation.constraints.NotNull;
         title = "Produto",
         filters = "[nomeProduto,Ctrl.DAO.filter()]",
         members= "["
-        + "nomeProduto"
+        + "nomeProduto;"
+        + "estoqueMinimo"
         + "]",
         roles = "Administrador,Famaceutico,Atendente",
         template = "@CRUD+@PAGER"
@@ -38,7 +39,18 @@ public class Produto implements Serializable{
     @PropertyDescriptor(displayName="Nome do Produto")
     private String nomeProduto;
     
-    public long getIdProduto() {
+    @PropertyDescriptor(displayName="Quantidade Minima em Estoque")
+    private Long estoqueMinimo;
+    
+    public Long getEstoqueMinimo() {
+		return estoqueMinimo;
+	}
+
+	public void setEstoqueMinimo(Long estoqueMinimo) {
+		this.estoqueMinimo = estoqueMinimo;
+	}
+
+	public long getIdProduto() {
         return idProduto;
     }
 

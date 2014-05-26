@@ -71,6 +71,61 @@ public class GeradorRelatorio {
         }
 
     }
+    
+    public void gerarEB(ArrayList<Relatorio> relatorio) {
+        Document doc = null;
+        OutputStream os = null;
+        try {
+            os = new FileOutputStream(Configuracao.CLASSPATH + "relatorios/relatorioEstoqueBaixo.pdf");
+
+            doc = new Document();
+            PdfWriter.getInstance(doc, os);
+            doc.open();
+
+            PdfPTable cabecalho = new PdfPTable(2);
+            Font fonteCabecalho = new Font(FontFamily.HELVETICA, 14, Font.BOLD);
+
+            Font fonteDesc = new Font(); /*
+             * Será usada na descrição.
+             */
+
+            float[] widths = {0.15f, 0.85f};
+            cabecalho.setWidthPercentage(90);/*
+             * Seta a largura da tabela com relação a página.
+             */
+            cabecalho.setWidths(widths);
+            cabecalho.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+
+            Image img = Image.getInstance(Configuracao.CLASSPATH + "relatorios/logo.png");
+
+            img.setAlignment(Element.ALIGN_CENTER);
+            doc.add(img);
+
+            Paragraph p = new Paragraph("Prefeitura Municipal de Quixadá\n" + "Farmacia Quixada\n"
+                    + "Relatório de Estoque Baixo");
+            p.setAlignment(Element.ALIGN_CENTER);
+            doc.add(p);
+
+            doc.add(cabecalho);
+
+            try {
+                doc.add(getCabecalhoRE(relatorio, fonteDesc));
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
+            System.out.println("Gerando Relatorio");
+            doc.close();
+            os.close();
+
+            System.out.println("Relatorio Gerado");
+
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }
+
+    }
 
     public void gerarVI(ArrayList<Relatorio> relatorio, Date dataInicio, Date dataFim) {
         Document doc = null;

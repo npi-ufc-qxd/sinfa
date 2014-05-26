@@ -7,6 +7,8 @@ package relatorio;
 
 import java.util.Date;
 
+import org.apache.log4j.helpers.QuietWriter;
+
 
 /**
  *
@@ -47,7 +49,7 @@ public class Relatorio {
     private String telefoneresponsavel;
     private Date datanascimentoresponsavel;
     
-    
+        
     
     public Date getDataRetorno() {
         return dataRetorno;
